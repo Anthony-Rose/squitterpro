@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SquitterPro — Your antenna hears everything. Start keeping score.</title>
+<meta name="description" content="SquitterPro is a desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, military-aware map icons, range records, coverage maps, alerts, and trends. Works with Jetvision Airsquitter, readsb/dump1090 Raspberry Pi trackers, or free public feeds.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a365d'/><text x='50' y='68' font-size='52' text-anchor='middle'>✈️</text></svg>">
+<style>
+  :root {
+    --bg: #0d1421; --panel: #141e30; --panel2: #182338;
+    --text: #d7e1f0; --dim: #8298b5; --accent: #4a9eda; --accent2: #63b3ed;
+    --olive: #7c9a3f; --orange: #ed8936; --line: #223147;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.6 'Segoe UI', system-ui, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 84px 0 60px; text-align: center;
+    background: radial-gradient(ellipse at 50% -20%, #1c2e4d 0%, var(--bg) 65%); }
+  .logo { font-size: 15px; letter-spacing: 3px; color: var(--accent2); text-transform: uppercase; }
+  h1 { font-size: clamp(30px, 5.5vw, 52px); margin: 14px 0 10px; line-height: 1.15; }
+  .sub { color: var(--dim); font-size: 19px; max-width: 640px; margin: 0 auto 30px; }
+  .cta { display: inline-block; margin: 6px 8px; padding: 13px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; }
+  .cta.primary { background: var(--accent); color: #fff; }
+  .cta.ghost { border: 1px solid var(--accent); color: var(--accent2); }
+  .cta:hover { filter: brightness(1.15); }
+  .badge { display: inline-block; background: #26375580; border: 1px solid #33507a;
+    color: var(--accent2); border-radius: 20px; padding: 3px 14px; font-size: 13px; margin-bottom: 18px; }
+  section { padding: 56px 0; }
+  section.alt { background: var(--panel); }
+  h2 { font-size: 28px; margin-bottom: 8px; }
+  .lead { color: var(--dim); margin-bottom: 34px; max-width: 700px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--panel2); border: 1px solid #223147; border-radius: 12px; padding: 22px; }
+  .card h3 { font-size: 17px; margin-bottom: 8px; }
+  .card p { color: var(--dim); font-size: 14.5px; }
+  .card .ic { font-size: 26px; margin-bottom: 10px; display: block; }
+  .rx { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .rx span { background: #1d2c46; border: 1px solid #2c4265; padding: 7px 16px;
+    border-radius: 8px; font-size: 14px; color: var(--text); }
+  .story { display: grid; grid-template-columns: 1fr; gap: 8px; max-width: 720px; }
+  .story p { color: var(--dim); }
+  .story strong { color: var(--text); }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 34px; margin-top: 26px; }
+  .stat b { display: block; font-size: 30px; color: var(--accent2); }
+  .stat span { color: var(--dim); font-size: 13.5px; }
+  footer { padding: 44px 0 56px; border-top: 1px solid #1d2b42; color: var(--dim); font-size: 13.5px; }
+  footer a { color: var(--accent2); text-decoration: none; }
+  .foot-links { margin-bottom: 14px; }
+  .foot-links a { margin-right: 22px; }
+  @media (max-width: 640px) { header { padding: 56px 0 40px; } section { padding: 40px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">SquitterPro</div>
+    <h1>Your antenna hears everything.<br>Start keeping score.</h1>
+    <p class="sub">Every aircraft your ADS-B receiver has ever heard — logged, photographed,
+    and mapped. Watch military helicopters sweep past in real time, get an alert when that
+    C-17 comes back, and find out just how far your antenna can really reach.</p>
+    <div class="badge">In final testing — launching soon</div><br>
+    <a class="cta primary" href="mailto:SquitterPro@proton.me?subject=Notify%20me%20when%20SquitterPro%20launches">Get notified at launch</a>
+    <a class="cta ghost" href="https://ko-fi.com/defuzer" target="_blank" rel="noopener">Support the project ♥</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Not another live map</h2>
+    <p class="lead">tar1090 and Virtual Radar Server already show you what's overhead
+    right now. SquitterPro is about what your station has <em>accomplished</em>.</p>
+    <div class="grid">
+      <div class="card"><span class="ic">📒</span><h3>A life list for aircraft</h3>
+        <p>Every airframe you've ever received, with photo, operator, type, and how many
+        times it's visited. Like an eBird life list, for your antenna.</p></div>
+      <div class="card"><span class="ic">🚁</span><h3>Military traffic, obvious at a glance</h3>
+        <p>Fighter and attack-helicopter icons in olive drab, driven by ICAO type data —
+        Black Hawks look like Black Hawks, not like Cessnas. Filter to just the traffic you care about.</p></div>
+      <div class="card"><span class="ic">📡</span><h3>Range records that mean something</h3>
+        <p>All-time furthest reception with the aircraft's full details at the record moment,
+        plus a 360° coverage envelope built from your receiver's own statistics.
+        Decode-glitch filtering keeps the bragging rights honest.</p></div>
+      <div class="card"><span class="ic">🔔</span><h3>Alerts while you live your life</h3>
+        <p>SquitterPro sits in the system tray. Windows notifications when a watched aircraft
+        returns, a drone shows up, someone squawks 7700, or you set a new distance record.</p></div>
+      <div class="card"><span class="ic">📈</span><h3>Trends over time</h3>
+        <p>Distinct aircraft per hour, day, or year by category. Are military flights
+        increasing? More drones this month? The chart answers.</p></div>
+      <div class="card"><span class="ic">🗻</span><h3>2.5-D altitude view</h3>
+        <p>An isometric view of your airspace with every aircraft on a stem at its true
+        altitude — see the vertical structure of your local traffic, plus area METAR weather.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Works with what you have — even nothing</h2>
+    <p class="lead">Native support for dedicated receivers, Raspberry Pi trackers, and
+    free community feeds if you haven't bought hardware yet.</p>
+    <div class="rx">
+      <span>Jetvision Air!Squitter / Radarcape</span>
+      <span>readsb</span><span>dump1090-fa</span><span>tar1090</span>
+      <span>PiAware / SkyAware</span><span>SBS / port 30003</span>
+      <span>Public feeds (no receiver needed)</span>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>388 mi</b><span>developer's antenna range record<br>(SoCal marine duct)</span></div>
+      <div class="stat"><b>2,800+</b><span>airframes logged in the first 48 hours</span></div>
+      <div class="stat"><b>100%</b><span>of your data stays on your machine</span></div>
+      <div class="stat"><b>$0/mo</b><span>one-time purchase planned — no subscription, ever</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Built by a receiver owner, for receiver owners</h2>
+    <div class="story">
+      <p><strong>SquitterPro is built in Jamul, California by Anthony Rose</strong> — a retired
+      Navy EOD technician who put an ADS-B receiver on the roof and wanted to know what was
+      flying over the house. San Diego airspace obliged: airliners into KSAN, Black Hawks and
+      Super Hornets out of Miramar and North Island, and the occasional surprise from far
+      out over the Pacific.</p>
+      <p>Nothing existing kept score — the live maps forgot every aircraft the moment it
+      left the screen. So SquitterPro treats your antenna like a birder treats binoculars:
+      every contact goes in the book.</p>
+      <p>Also the maker of <a href="https://ko-fi.com/defuzer" style="color:var(--accent2)">Defuzer</a>,
+      a cyberpunk EOD role-playing game.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="mailto:SquitterPro@proton.me">SquitterPro@proton.me</a>
+      <a href="https://ko-fi.com/defuzer" target="_blank" rel="noopener">Tip jar</a>
+    </div>
+    <p>Aircraft photos in-app are provided by planespotters.net and remain © their photographers.
+    Registration data by hexdb.io. Weather by aviationweather.gov. Map data © OpenStreetMap
+    contributors. SquitterPro is an independent project, not affiliated with Jetvision.</p>
+    <p style="margin-top:8px">© 2026 Anthony Rose. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
