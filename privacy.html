@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SquitterPro — Privacy Policy</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a365d'/><text x='50' y='68' font-size='52' text-anchor='middle'>✈️</text></svg>">
+<style>
+  :root { --bg:#0d1421; --panel:#141e30; --text:#d7e1f0; --dim:#8298b5; --accent2:#63b3ed; --line:#223147; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font:16px/1.65 'Segoe UI',system-ui,sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:40px 24px 80px; }
+  a { color:var(--accent2); }
+  h1 { font-size:28px; margin-bottom:6px; }
+  h2 { font-size:18px; margin:26px 0 8px; color:var(--accent2); }
+  p, li { color:#c4d2e6; margin-bottom:10px; }
+  ul { margin:0 0 10px 22px; }
+  .meta { color:var(--dim); font-size:14px; margin-bottom:24px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← SquitterPro</a>
+  <h1>Privacy Policy</h1>
+  <div class="meta">Last updated: 2026-07-19</div>
+
+  <p>SquitterPro is a desktop aircraft-tracking application made by Anthony Rose ("we", "us").
+  This policy explains what data the app handles and what leaves your computer. The short
+  version: SquitterPro is a local-first app. It stores your data on your own machine, does not
+  send it to us, and runs no analytics or tracking.</p>
+
+  <h2>1. Data we collect about you</h2>
+  <p>We do not collect, store, or receive your personal data through normal use. There are no
+  accounts, no analytics, no advertising, and no usage telemetry. Information reaches us only if
+  you choose to send a problem report, or when you purchase a license (handled by our payment
+  provider).</p>
+
+  <h2>2. Data stored locally on your device</h2>
+  <p>The app stores the following on your computer only, under your Windows user profile
+  (<code>%LOCALAPPDATA%\SquitterPro</code>), not synced to us: your aircraft logbook, coverage
+  history, range records and statistics; your settings (including receiver address, chosen home
+  location, and, if you enable it, your airframes.io API key); cached photos and metadata; and
+  your license key if activated. You can delete all of it by removing that folder.</p>
+
+  <h2>3. Third-party services the app contacts</h2>
+  <p>To show maps, photos, weather, and optional community/ACARS data, the app makes requests
+  directly from your computer to third parties. We do not receive that data; each provider sees
+  your device's IP address, as any website does. What is sent:</p>
+  <ul>
+    <li><b>hexdb.io</b> — ICAO24 hex codes of aircraft you see (metadata).</li>
+    <li><b>planespotters.net</b> — ICAO24 hex codes (aircraft photos).</li>
+    <li><b>aviationweather.gov</b> — your approximate area (nearby weather).</li>
+    <li><b>RainViewer</b> — map-tile requests for the area you view (radar).</li>
+    <li><b>Map tiles</b> (OpenStreetMap / Esri / CARTO or a configured provider) — the map area you view.</li>
+    <li><b>Community ADS-B feeds</b> (adsb.lol, adsb.fi, airplanes.live) — only if you enable Public Feed: your home coordinates and a search radius.</li>
+    <li><b>airframes.io</b> — only if you enable ACARS: your own airframes.io API key, to authenticate. ACARS data is provided by Airframes.io and its community of feeders.</li>
+    <li><b>GitHub</b> — an update check for the latest version; no personal data sent.</li>
+  </ul>
+  <p>Each provider has its own privacy policy governing these requests.</p>
+
+  <h2>4. License activation</h2>
+  <p>License keys are verified entirely offline on your device using cryptographic signatures.
+  Activation does not contact us or any server, and your key stays on your computer.</p>
+
+  <h2>5. Problem reports</h2>
+  <p>The "Report a problem" feature opens your own email program with a recent copy of the local
+  log file. Nothing is sent unless you review it and click send. If you send it, we use it only to
+  diagnose the issue.</p>
+
+  <h2>6. Payments</h2>
+  <p>License purchases are processed by our payment provider (Ko-fi and/or its payment partners as
+  merchant of record) under their own privacy policies. We do not receive or store your full
+  payment card details. We may receive your email address and order reference to deliver and
+  support your license.</p>
+
+  <h2>7. Location</h2>
+  <p>The app uses a "home" location that you set yourself or that is read from your own receiver.
+  We do not collect precise device location. If you enable Public Feed, your chosen coordinates are
+  sent to the community aggregators above to find nearby aircraft.</p>
+
+  <h2>8. Children</h2>
+  <p>The app is not directed to children under 16, and we do not knowingly collect their data.</p>
+
+  <h2>9. Your rights</h2>
+  <p>Because we hold essentially no personal data about you, most access/deletion requests are
+  satisfied by managing the local data folder on your device. If you have sent us a problem report
+  or purchased a license and want the associated email/order information deleted, contact us and we
+  will honor applicable rights under laws such as the GDPR and CCPA.</p>
+
+  <h2>10. Security</h2>
+  <p>Local data is protected by your operating-system account. No system is perfectly secure; keep
+  your device and account secured. Your airframes.io API key is stored in the local settings file.</p>
+
+  <h2>11. Changes</h2>
+  <p>We may update this policy; the "Last updated" date will change and the current version is
+  available in the app (About) and here.</p>
+
+  <h2>12. Contact</h2>
+  <p><a href="mailto:SquitterPro@proton.me">SquitterPro@proton.me</a></p>
+</div>
+</body>
+</html>
