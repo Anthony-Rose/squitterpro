@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) with Consent Mode -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-60GZTQ8C74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-60GZTQ8C74');
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  try { if (localStorage.getItem('sp_cookie_consent') === 'granted')
+    gtag('consent', 'update', { 'analytics_storage': 'granted' }); } catch(e){}
+  gtag('config', 'G-60GZTQ8C74', { 'anonymize_ip': true });
 </script>
+<script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SquitterPro — Your antenna hears everything. Start keeping score.</title>
 <meta name="description" content="SquitterPro is a desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, military-aware map icons, range records, coverage maps, alerts, and trends. Works with Jetvision Airsquitter, readsb/dump1090 Raspberry Pi trackers, or free public feeds.">
