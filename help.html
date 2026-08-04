@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) with Consent Mode -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-60GZTQ8C74"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  try { if (localStorage.getItem('sp_cookie_consent') === 'granted')
+    gtag('consent', 'update', { 'analytics_storage': 'granted' }); } catch(e){}
+  gtag('config', 'G-60GZTQ8C74', { 'anonymize_ip': true });
+</script>
+<script defer src="consent.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SquitterPro — Help &amp; Setup Guide</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a365d'/><text x='50' y='68' font-size='52' text-anchor='middle'>✈️</text></svg>">
+<style>
+  :root { --bg:#0d1421; --panel:#141e30; --text:#d7e1f0; --dim:#8298b5; --accent2:#63b3ed; --line:#223147; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font:16px/1.65 'Segoe UI',system-ui,sans-serif; }
+  .wrap { max-width:820px; margin:0 auto; padding:40px 24px 80px; }
+  a { color:var(--accent2); }
+  h1 { font-size:28px; margin-bottom:6px; }
+  h2 { font-size:20px; margin:34px 0 10px; color:var(--accent2); padding-top:8px; border-top:1px solid var(--line); }
+  h3 { font-size:16px; margin:18px 0 6px; }
+  p, li { color:#c4d2e6; margin-bottom:10px; }
+  ul, ol { margin:0 0 10px 22px; }
+  .meta { color:var(--dim); font-size:14px; margin-bottom:24px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; }
+  .toc { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:10px 0 20px; }
+  .toc a { display:inline-block; margin:2px 14px 2px 0; font-size:14px; }
+  code { background:#0b1420; border:1px solid var(--line); border-radius:4px; padding:1px 5px; font:13px Consolas,monospace; color:#9fd0ff; }
+  pre { background:#0b1420; border:1px solid var(--line); border-radius:8px; padding:12px 14px; overflow-x:auto;
+        font:13px/1.55 Consolas,monospace; color:#c8d6ea; margin:8px 0 14px; }
+  .note { background:#12233a; border-left:3px solid var(--accent2); border-radius:6px; padding:10px 14px; margin:10px 0; }
+  .warn { background:#2a1e12; border-left:3px solid #d69e2e; border-radius:6px; padding:10px 14px; margin:10px 0; }
+  .q { font-weight:600; color:#e6eefb; margin-top:16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← SquitterPro</a>
+  <h1>Help &amp; Setup Guide</h1>
+  <div class="meta">Everything you need to get SquitterPro running. Most of the app is explained by the built-in tour (About → Replay tutorial) — this page covers setup and the technical extras.</div>
+
+  <div class="toc">
+    <a href="#install">Install &amp; first run</a>
+    <a href="#receiver">Connect a receiver</a>
+    <a href="#noreceiver">No receiver?</a>
+    <a href="#pro">Going Pro &amp; activation</a>
+    <a href="#acars">ACARS cockpit messages</a>
+    <a href="#ai">AI “Explain”</a>
+    <a href="#faq">Troubleshooting</a>
+  </div>
+
+  <h2 id="install">Install &amp; first run</h2>
+  <ol>
+    <li>Download <b>SquitterPro-Setup.exe</b> from the <a href="https://github.com/Anthony-Rose/squitterpro/releases/latest">latest release</a> and run it.</li>
+    <li>The first time you run an app downloaded from the internet, Windows may show <b>“Windows protected your PC.”</b> Click <b>More info → Run anyway</b>. (See the note below.)</li>
+    <li>On first launch you’ll accept the licence agreement and get a short guided tour. You can replay the tour any time from <b>About</b>.</li>
+    <li>SquitterPro runs in <b>free mode</b> right away — live map, logbook, photos, your own receiver, and station stats. Pro features unlock with a licence key (see <a href="#pro">Going Pro</a>).</li>
+  </ol>
+  <div class="warn"><b>SmartScreen warning:</b> the installer isn’t code-signed yet, so Windows shows a blue warning the first time. This is normal for small independent apps. Click <b>More info → Run anyway</b>. The app makes no changes outside your own user folder.</div>
+
+  <h2 id="receiver">Connect a receiver</h2>
+  <p>SquitterPro reads live aircraft from an ADS-B receiver on your network. Open <b>⚙ Setup → Receiver / connection</b>, pick your type, enter its address, and Save. If you don’t know the IP, click <b>Scan</b> to find it automatically.</p>
+  <ul>
+    <li><b>Jetvision Airsquitter / Radarcape</b> — type <b>HTTP</b>, address like <code>192.168.1.50</code>. SquitterPro reads its <code>/aircraftlist.json</code> feed (richer than SBS: includes registration, type, and category).</li>
+    <li><b>readsb / dump1090 / tar1090 / PiAware (Raspberry Pi)</b> — type <b>readsb</b>, address like <code>192.168.1.10</code>, port usually <code>8080</code> or <code>80</code> (the paths are auto-discovered).</li>
+    <li><b>Raw SBS / BaseStation</b> — type <b>SBS</b>, port <code>30003</code> (only if that output is enabled on your unit).</li>
+  </ul>
+  <div class="note">If your receiver’s IP changes after a power outage or router reboot, just open Setup → Receiver and <b>Scan</b> again.</div>
+
+  <h2 id="noreceiver">No receiver? Use the public feed</h2>
+  <p>You don’t need any hardware to use SquitterPro. Turn on <b>Public Feed</b> (top bar) to blend in free community traffic from adsb.lol / adsb.fi / airplanes.live around your location. First, set where you are: <b>⚙ Setup → Set home location</b> — type coordinates or drop a pin on the map. Public-feed aircraft are display-only and don’t count toward your own receiver’s logbook or stats.</p>
+
+  <h2 id="pro">Going Pro &amp; activation</h2>
+  <p><b>Pro</b> unlocks weather radar, area weather, coverage map &amp; range records, type trends, the 2.5D altitude view, and ACARS cockpit messages. It’s a one-time licence.</p>
+  <h3>Activate</h3>
+  <ol>
+    <li>Buy a licence — you’ll receive a <b>licence key</b> by email.</li>
+    <li>In SquitterPro click <b>★ Pro</b> (top bar), paste your key, and click <b>Activate</b>.</li>
+    <li>That’s it — Pro features unlock immediately. Your key is remembered.</li>
+  </ol>
+  <h3 class="q">Moving to a new computer?</h3>
+  <p>Each licence works on a limited number of devices. To free a slot before switching machines, open <b>★ Pro → Remove licence</b> on the old computer, then activate on the new one. A reinstall on the <i>same</i> computer does <b>not</b> use up a slot.</p>
+  <h3 class="q">“Activation limit reached”?</h3>
+  <p>You’ve activated on the maximum number of devices for that key. Remove the licence from a device you no longer use (above), or get in touch and we’ll help.</p>
+
+  <h2 id="acars">ACARS cockpit messages <span style="font-size:13px;color:#f6e05e;border:1px solid #b7791f;border-radius:8px;padding:0 6px">Pro</span></h2>
+  <p>ACARS/VDL2/HFDL are the short text messages aircraft exchange with the ground — gate info, weather, position reports, and occasionally emergencies. SquitterPro can show them two ways, and you can use either or both. Open <b>⚙ Setup → Cockpit messages (ACARS)</b> and choose a <b>Source</b>.</p>
+
+  <h3>Option A — airframes.io (easiest)</h3>
+  <ol>
+    <li>Make a free account at <a href="https://app.airframes.io/" target="_blank" rel="noopener">airframes.io</a> and copy your <b>API key</b>.</li>
+    <li>In Setup → Cockpit messages, set Source to <b>airframes.io</b> (or <b>Both</b>), paste the key, and Save.</li>
+  </ol>
+  <p>Data is provided by Airframes.io and its community of feeders.</p>
+
+  <h3>Option B — your own decoders (local)</h3>
+  <p>If you run your own SDR decoders, point their JSON output at SquitterPro over UDP. Set Source to <b>Local</b> (or <b>Both</b>); the default port is <b>5555</b>. Examples (replace the device/frequency arguments for your setup):</p>
+  <pre># VHF ACARS (acarsdec)
+acarsdec -o 0 -j 127.0.0.1:5555 &lt;your device/frequency args&gt;
+
+# VDL Mode 2 (dumpvdl2)
+dumpvdl2 --output decoded:json:udp:address=127.0.0.1,port=5555 &lt;args&gt;
+
+# HFDL (dumphfdl)
+dumphfdl --output decoded:json:udp:address=127.0.0.1,port=5555 &lt;args&gt;</pre>
+  <div class="note">If the decoder runs on another machine, use SquitterPro’s IP instead of <code>127.0.0.1</code> and make sure UDP 5555 is allowed through the firewall.</div>
+
+  <h3>Copy a message</h3>
+  <p>Every message has a <b>Copy</b> link — handy for pasting into a search engine or another AI tool.</p>
+
+  <h3>Reading messages</h3>
+  <ul>
+    <li>Aircraft with cockpit messages get a <b>gold ring</b> and a ✉ in the list. Click one to read its messages.</li>
+    <li>The <b>ACARS tab</b> shows a live ticker of all messages.</li>
+    <li><b>Emergencies</b> (Mayday, squawk 7700, engine failure, etc.) turn the ring <b>red</b>, raise a red banner, and are saved permanently in the 🔔 notification bell.</li>
+    <li>SquitterPro decodes the message type and common content automatically. Some messages are airline-proprietary — for those, use <a href="#ai">AI “Explain”</a>.</li>
+  </ul>
+
+  <h2 id="ai">AI “Explain” <span style="font-size:13px;color:#f6e05e;border:1px solid #b7791f;border-radius:8px;padding:0 6px">Optional</span></h2>
+  <p>Some ACARS messages are just letters and numbers (airline-proprietary or engine/maintenance reports). SquitterPro can send a single message to an AI of <b>your choice</b> and get a plain-English explanation back. Nothing is sent unless you click <b>Explain</b> on a message.</p>
+  <p>Set it up in <b>Setup → Cockpit messages → Explain messages with AI</b>. Pick a provider and paste a key from your own account:</p>
+  <ul>
+    <li><b>Anthropic (Claude)</b> — key from <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a></li>
+    <li><b>OpenAI (ChatGPT)</b> — key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a></li>
+    <li><b>Google (Gemini)</b> — key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com</a></li>
+    <li><b>Custom</b> — any OpenAI-compatible endpoint, including OpenRouter or a local <a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> server (enter its base URL).</li>
+  </ul>
+  <p>Leave the model blank to use a fast, low-cost default. You pay your provider directly for what you use; explanations typically cost a fraction of a cent each.</p>
+
+  <h2 id="faq">Troubleshooting</h2>
+
+  <p class="q">“Windows protected your PC” when I run the installer</p>
+  <p>Expected for an unsigned app — click <b>More info → Run anyway</b>. SquitterPro is safe and only writes to your own user folder.</p>
+
+  <p class="q">No aircraft on the map</p>
+  <p>Either your receiver isn’t reachable, or you have no receiver. Check <b>⚙ Setup → Receiver</b> (and Scan), or turn on <b>Public Feed</b> and set your home location.</p>
+
+  <p class="q">“Receiver offline” / it can’t find my receiver</p>
+  <p>Confirm the receiver is powered on and on the same network, then Setup → Receiver → <b>Scan</b>. If its IP changed, the scan will find the new one. Check that your firewall isn’t blocking the app.</p>
+
+  <p class="q">The map looks blank or tiles won’t load</p>
+  <p>Check your internet connection. Advanced users can set their own map key in <b>⚙ Setup → Map tiles</b>.</p>
+
+  <p class="q">ACARS shows nothing</p>
+  <p>Make sure a Source is selected (Setup → Cockpit messages) and that your airframes.io key is valid or your local decoder is sending to UDP 5555. The global feed can also be briefly unavailable on the provider’s side; it reconnects automatically.</p>
+
+  <p class="q">AI “Explain” says it isn’t set up</p>
+  <p>Add a provider and API key in Setup → Cockpit messages → Explain messages with AI.</p>
+
+  <p class="q">Where is my data stored?</p>
+  <p>Everything stays on your PC under <code>%LOCALAPPDATA%\SquitterPro</code> — logbook, settings, cached photos, and your licence. Deleting that folder resets the app.</p>
+
+  <p style="margin-top:28px">Still stuck? Email <a href="mailto:SquitterPro@proton.me">SquitterPro@proton.me</a> or use <b>About → Report a problem</b> in the app.</p>
+</div>
+</body>
+</html>

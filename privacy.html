@@ -35,7 +35,7 @@
 <div class="wrap">
   <a class="back" href="./">← SquitterPro</a>
   <h1>Privacy Policy</h1>
-  <div class="meta">Last updated: 2026-07-19</div>
+  <div class="meta">Last updated: 2026-08-04</div>
 
   <p>SquitterPro is a desktop aircraft-tracking application made by Anthony Rose ("we", "us").
   This policy explains what data the app handles and what leaves your computer. The short
@@ -60,8 +60,8 @@
   <p>The app stores the following on your computer only, under your Windows user profile
   (<code>%LOCALAPPDATA%\SquitterPro</code>), not synced to us: your aircraft logbook, coverage
   history, range records and statistics; your settings (including receiver address, chosen home
-  location, and, if you enable it, your airframes.io API key); cached photos and metadata; and
-  your license key if activated. You can delete all of it by removing that folder.</p>
+  location, and, if you enable them, your airframes.io API key and your chosen AI provider's API
+  key); cached photos and metadata; and your license key if activated. You can delete all of it by removing that folder.</p>
 
   <h2>3. Third-party services the app contacts</h2>
   <p>To show maps, photos, weather, and optional community/ACARS data, the app makes requests
@@ -72,16 +72,22 @@
     <li><b>planespotters.net</b> — ICAO24 hex codes (aircraft photos).</li>
     <li><b>aviationweather.gov</b> — your approximate area (nearby weather).</li>
     <li><b>RainViewer</b> — map-tile requests for the area you view (radar).</li>
-    <li><b>Map tiles</b> (OpenStreetMap / Esri / CARTO or a configured provider) — the map area you view.</li>
-    <li><b>Community ADS-B feeds</b> (adsb.lol, adsb.fi, airplanes.live) — only if you enable Public Feed: your home coordinates and a search radius.</li>
+    <li><b>MapTiler</b> — the map area you view (base-map tiles). Development builds may fall back to OpenStreetMap / Esri / CARTO.</li>
+    <li><b>Community ADS-B feeds</b> (adsb.lol, adsb.fi, airplanes.live) — only if you enable Public Feed, or when locating a specific aircraft: your home/search coordinates or the callsign/registration you look up.</li>
     <li><b>airframes.io</b> — only if you enable ACARS: your own airframes.io API key, to authenticate. ACARS data is provided by Airframes.io and its community of feeders.</li>
+    <li><b>Your chosen AI provider</b> (Anthropic, OpenAI, Google, or a custom endpoint you configure) — only if you enable "Explain" for a message and click it: the text of that ACARS message and your API key are sent to that provider to generate a plain-English summary. Nothing is sent unless you click Explain.</li>
+    <li><b>Lemon Squeezy</b> — only when you activate or validate a Pro license: your license key and your computer's name (see License activation below).</li>
     <li><b>GitHub</b> — an update check for the latest version; no personal data sent.</li>
   </ul>
   <p>Each provider has its own privacy policy governing these requests.</p>
 
   <h2>4. License activation</h2>
-  <p>License keys are verified entirely offline on your device using cryptographic signatures.
-  Activation does not contact us or any server, and your key stays on your computer.</p>
+  <p>When you activate a Pro license, your key is validated with our store provider (Lemon
+  Squeezy), which enforces a per-key device limit to prevent sharing. To do this the app sends
+  your license key and a device identifier (your computer's name) to Lemon Squeezy. After a
+  successful activation the result is cached on your computer and trusted offline between periodic
+  re-checks, so the app keeps working without a connection. Some complimentary keys are verified
+  entirely offline. Your license key is stored only on your device.</p>
 
   <h2>5. Problem reports</h2>
   <p>The "Report a problem" feature opens your own email program with a recent copy of the local
@@ -89,10 +95,10 @@
   diagnose the issue.</p>
 
   <h2>6. Payments</h2>
-  <p>License purchases are processed by our payment provider (Ko-fi and/or its payment partners as
-  merchant of record) under their own privacy policies. We do not receive or store your full
-  payment card details. We may receive your email address and order reference to deliver and
-  support your license.</p>
+  <p>License purchases are processed by <b>Lemon Squeezy</b>, which acts as the merchant of record,
+  under its own privacy policy. We do not receive or store your full payment card details. We may
+  receive your email address and order reference to deliver and support your license. Optional tips
+  are handled separately by Ko-fi under its own privacy policy.</p>
 
   <h2>7. Location</h2>
   <p>The app uses a "home" location that you set yourself or that is read from your own receiver.
@@ -110,7 +116,7 @@
 
   <h2>10. Security</h2>
   <p>Local data is protected by your operating-system account. No system is perfectly secure; keep
-  your device and account secured. Your airframes.io API key is stored in the local settings file.</p>
+  your device and account secured. Any API keys you enter (airframes.io, an AI provider) are stored in the local settings file.</p>
 
   <h2>11. Changes</h2>
   <p>We may update this policy; the "Last updated" date will change and the current version is
