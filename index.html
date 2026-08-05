@@ -16,7 +16,7 @@
 <script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SquitterPro — Your antenna hears everything. Start keeping score.</title>
-<meta name="description" content="SquitterPro is a desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, military-aware map icons, range records, coverage maps, alerts, and trends. Works with Jetvision Airsquitter, readsb/dump1090 Raspberry Pi trackers, or free public feeds.">
+<meta name="description" content="SquitterPro is a desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, a 2.5-D altitude view, military-aware map icons, range records, coverage maps, weather radar, alerts, trends, and ACARS cockpit-message decoding. Works with Jetvision Airsquitter, readsb/dump1090 Raspberry Pi trackers, or free public feeds. Free to use; $24 one-time for Pro.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a365d'/><text x='50' y='68' font-size='52' text-anchor='middle'>✈️</text></svg>">
 <style>
   :root {
@@ -61,29 +61,123 @@
   footer a { color: var(--accent2); text-decoration: none; }
   .foot-links { margin-bottom: 14px; }
   .foot-links a { margin-right: 22px; }
+  /* --- storefront additions --- */
+  header.hero { position: relative; overflow: hidden; }
+  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: .30; z-index: 0; }
+  header.hero::after { content: ''; position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse at 50% -10%, rgba(28,46,77,.55) 0%, rgba(13,20,33,.86) 62%, var(--bg) 100%); }
+  header.hero .wrap { position: relative; z-index: 2; }
+  .price-note { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  .shot { display: block; width: 100%; border-radius: 12px; border: 1px solid #2c4265;
+    box-shadow: 0 18px 60px rgba(0,0,0,.5); }
+  .shot-cap { color: var(--dim); font-size: 13.5px; text-align: center; margin-top: 12px; }
+  .hero-shot { max-width: 1000px; margin: 0 auto; }
+  .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; margin-bottom: 46px; }
+  .feat:last-child { margin-bottom: 0; }
+  .feat:nth-child(even) .feat-txt { order: 2; }
+  .feat h3 { font-size: 22px; margin-bottom: 8px; }
+  .feat p { color: var(--dim); }
+  .feat .tag { display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: #f6c453; border: 1px solid #7c6a1a; border-radius: 20px; padding: 2px 10px; margin-bottom: 12px; }
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+    max-width: 760px; margin: 30px auto 0; }
+  .price-card { background: var(--panel2); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px; text-align: center; }
+  .price-card.pro { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 18px 50px rgba(0,0,0,.4); }
+  .price-card h3 { font-size: 20px; }
+  .price-card .amt { font-size: 40px; font-weight: 700; color: #fff; margin: 8px 0 2px; }
+  .price-card .per { color: var(--dim); font-size: 14px; margin-bottom: 6px; }
+  .price-card ul { list-style: none; text-align: left; margin: 18px 0 22px; }
+  .price-card li { color: var(--text); font-size: 14.5px; padding: 5px 0 5px 26px; position: relative; }
+  .price-card li::before { content: '✓'; color: var(--accent2); position: absolute; left: 0; }
+  @media (max-width: 760px) { .feat { grid-template-columns: 1fr; } .feat:nth-child(even) .feat-txt { order: 0; } }
   @media (max-width: 640px) { header { padding: 56px 0 40px; } section { padding: 40px 0; } }
 </style>
 </head>
 <body>
 
-<header>
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="img/shot-06.png">
+    <source src="img/hero-bg.mp4" type="video/mp4">
+  </video>
   <div class="wrap">
     <div class="logo">SquitterPro</div>
     <h1>Your antenna hears everything.<br>Start keeping score.</h1>
-    <p class="sub">Every aircraft your ADS-B receiver has ever heard — logged, photographed,
-    and mapped. Watch military helicopters sweep past in real time, get an alert when that
-    C-17 comes back, and find out just how far your antenna can really reach.</p>
-    <div class="badge">In final testing — launching soon</div><br>
-    <a class="cta primary" href="mailto:SquitterPro@proton.me?subject=Notify%20me%20when%20SquitterPro%20launches">Get notified at launch</a>
-    <a class="cta ghost" href="#support">Support the project ♥</a>
+    <p class="sub">A desktop aircraft tracker for your ADS-B receiver: every airframe you've ever
+    heard — logged, photographed, and mapped in 2.5-D, with range records, coverage, alerts,
+    weather, and cockpit-message decoding.</p>
+    <a class="cta primary" href="https://github.com/Anthony-Rose/squitterpro/releases/download/v0.9.0/SquitterPro-Setup-0.9.0.exe">↓ Download for Windows</a>
+    <a class="cta ghost" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Unlock Pro — $24</a>
+    <div class="price-note">Free to use · one-time <strong>$24</strong> for Pro · Windows 10/11 · no subscription, ever</div>
   </div>
 </header>
 
-<section>
+<section style="padding-top:44px">
+  <div class="wrap hero-shot">
+    <img class="shot" src="img/shot-06.png" loading="lazy"
+      alt="SquitterPro 2.5-D altitude view: aircraft on altitude stems with flight trails over satellite terrain in Southern California">
+    <div class="shot-cap">Your local airspace in 2.5-D — every aircraft on a stem at its true altitude, over satellite terrain.</div>
+  </div>
+</section>
+
+<section class="alt">
   <div class="wrap">
     <h2>Not another live map</h2>
-    <p class="lead">tar1090 and Virtual Radar Server already show you what's overhead
-    right now. SquitterPro is about what your station has <em>accomplished</em>.</p>
+    <p class="lead">tar1090 and Virtual Radar Server show you what's overhead right now.
+    SquitterPro is about what your station has <em>accomplished</em> — and it looks the part.</p>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <h3>See everything — and get told when it matters</h3>
+        <p>Hundreds of aircraft at once, from your receiver and free community feeds. SquitterPro
+        sits in the tray and fires a Windows alert when a watched aircraft returns, a drone shows
+        up, someone squawks 7700, or you set a new distance record — including live emergency
+        cockpit messages, flagged in red.</p>
+      </div>
+      <div><img class="shot" src="img/shot-07.png" loading="lazy"
+        alt="SquitterPro tracking hundreds of aircraft over Southern California with an emergency ACARS alert banner"></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="tag">Pro</span>
+        <h3>Read the cockpit messages</h3>
+        <p>Decode the ACARS / VDL / HFDL messages aircraft exchange with the ground — position
+        reports, weather, dispatch notes, and emergencies. Tap a plane for its photo, operator,
+        and live telemetry, and let optional AI turn the cryptic ones into plain English.</p>
+      </div>
+      <div><img class="shot" src="img/shot-03.png" loading="lazy"
+        alt="SquitterPro aircraft detail panel showing a Southwest 737 photo and decoded ACARS cockpit messages"></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="tag">Pro</span>
+        <h3>Weather, right on the map</h3>
+        <p>Overlay live precipitation radar and pull area METARs, so you can see the weather your
+        traffic is flying through — draped over the same satellite terrain.</p>
+      </div>
+      <div><img class="shot" src="img/shot-05.png" loading="lazy"
+        alt="SquitterPro live weather radar overlay on satellite terrain with aircraft"></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="tag">Pro</span>
+        <h3>Trends over time</h3>
+        <p>Distinct aircraft per hour, day, or year by category. Are military flights increasing?
+        More drones this month? The chart answers — built entirely from your own station's data.</p>
+      </div>
+      <div><img class="shot" src="img/shot-04.png" loading="lazy"
+        alt="SquitterPro aircraft-type trends chart showing distinct aircraft per day by category"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Everything it does</h2>
     <div class="grid">
       <div class="card"><span class="ic">📒</span><h3>A life list for aircraft</h3>
         <p>Every airframe you've ever received, with photo, operator, type, and how many
@@ -93,17 +187,16 @@
         Black Hawks look like Black Hawks, not like Cessnas. Filter to just the traffic you care about.</p></div>
       <div class="card"><span class="ic">📡</span><h3>Range records that mean something</h3>
         <p>All-time furthest reception with the aircraft's full details at the record moment,
-        plus a 360° coverage envelope built from your receiver's own statistics.
-        Decode-glitch filtering keeps the bragging rights honest.</p></div>
-      <div class="card"><span class="ic">🔔</span><h3>Alerts while you live your life</h3>
-        <p>SquitterPro sits in the system tray. Windows notifications when a watched aircraft
-        returns, a drone shows up, someone squawks 7700, or you set a new distance record.</p></div>
-      <div class="card"><span class="ic">📈</span><h3>Trends over time</h3>
-        <p>Distinct aircraft per hour, day, or year by category. Are military flights
-        increasing? More drones this month? The chart answers.</p></div>
+        plus a 360° coverage envelope built from your receiver's own statistics.</p></div>
       <div class="card"><span class="ic">🗻</span><h3>2.5-D altitude view</h3>
         <p>An isometric view of your airspace with every aircraft on a stem at its true
-        altitude — see the vertical structure of your local traffic, plus area METAR weather.</p></div>
+        altitude — see the vertical structure of your local traffic.</p></div>
+      <div class="card"><span class="ic">🔔</span><h3>Notifications inbox</h3>
+        <p>A bell that collects your alerts and emergency cockpit messages — emergencies kept
+        permanently — with one click to jump to the aircraft on the map.</p></div>
+      <div class="card"><span class="ic">🔒</span><h3>Yours, and private</h3>
+        <p>100% of your data stays on your machine. No account, no cloud, no tracking. A one-time
+        purchase — never a subscription.</p></div>
     </div>
   </div>
 </section>
@@ -123,12 +216,49 @@
       <div class="stat"><b>388 mi</b><span>developer's antenna range record<br>(SoCal marine duct)</span></div>
       <div class="stat"><b>2,800+</b><span>airframes logged in the first 48 hours</span></div>
       <div class="stat"><b>100%</b><span>of your data stays on your machine</span></div>
-      <div class="stat"><b>$0/mo</b><span>one-time purchase planned — no subscription, ever</span></div>
+      <div class="stat"><b>$24</b><span>one-time — no subscription, ever</span></div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="pricing">
+  <div class="wrap" style="text-align:center">
+    <h2>Simple pricing</h2>
+    <p class="lead" style="margin:0 auto 6px">Try it free. Unlock the good stuff once, forever.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <div class="per">forever</div>
+        <ul>
+          <li>Live map, flat &amp; military-aware icons</li>
+          <li>Permanent logbook with photos</li>
+          <li>Your own receiver or free public feeds</li>
+          <li>Breadcrumb trails, filters &amp; alerts</li>
+          <li>Your own station stats</li>
+        </ul>
+        <a class="cta ghost" style="display:block" href="https://github.com/Anthony-Rose/squitterpro/releases/download/v0.9.0/SquitterPro-Setup-0.9.0.exe">↓ Download free</a>
+      </div>
+      <div class="price-card pro">
+        <h3>Pro</h3>
+        <div class="amt">$24</div>
+        <div class="per">one-time · lifetime</div>
+        <ul>
+          <li>Everything in Free, plus…</li>
+          <li>2.5-D altitude view</li>
+          <li>Weather radar &amp; area weather</li>
+          <li>Coverage map &amp; all-time range records</li>
+          <li>Aircraft-type trends</li>
+          <li>ACARS cockpit messages + AI “Explain”</li>
+        </ul>
+        <a class="cta primary" style="display:block" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Get Pro — $24</a>
+      </div>
+    </div>
+    <p class="price-note">Secure checkout by Lemon Squeezy. Your license key is emailed to you and activates in the app.</p>
+  </div>
+</section>
+
+<section class="alt">
   <div class="wrap">
     <h2>Built by a receiver owner, for receiver owners</h2>
     <div class="story">
@@ -140,28 +270,19 @@
       <p>Nothing existing kept score — the live maps forgot every aircraft the moment it
       left the screen. So SquitterPro treats your antenna like a birder treats binoculars:
       every contact goes in the book.</p>
-      <p>SquitterPro is an independent one-person project, built and
-      supported directly by its maker.</p>
+      <p>SquitterPro is an independent one-person project, built and supported directly by its maker.</p>
     </div>
   </div>
 </section>
 
-<section class="alt" id="support">
-  <div class="wrap">
-    <h2>Support SquitterPro</h2>
-    <p class="lead">One maker, no subscription. Leave a tip or grab a license through Ko-fi —
-    secure checkout, handled entirely by Ko-fi. Your license key is emailed to you.</p>
-    <div style="max-width:640px;margin:22px auto 0;border-radius:14px;overflow:hidden;
-      border:1px solid var(--line);box-shadow:0 8px 30px rgba(0,0,0,.35)">
-      <iframe id="kofiframe"
-        src="https://ko-fi.com/squitterpro/?hidefeed=true&widget=true&embed=true&preview=true"
-        title="Support SquitterPro on Ko-fi" loading="lazy"
-        style="border:none;width:100%;background:#f9f9f9;display:block" height="680"></iframe>
-    </div>
-    <p style="margin-top:14px;font-size:14px;color:var(--dim)">
-      Trouble with the panel? <a href="https://ko-fi.com/squitterpro" target="_blank"
-      rel="noopener" style="color:var(--accent2)">Open Ko-fi in a new tab →</a>
-    </p>
+<section id="support">
+  <div class="wrap" style="text-align:center">
+    <h2>Get SquitterPro</h2>
+    <p class="lead" style="margin:0 auto 22px">Download free and try it today. Unlock Pro whenever you're ready — one time, $24.</p>
+    <a class="cta primary" href="https://github.com/Anthony-Rose/squitterpro/releases/download/v0.9.0/SquitterPro-Setup-0.9.0.exe">↓ Download for Windows</a>
+    <a class="cta ghost" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Unlock Pro — $24</a>
+    <p class="price-note" style="margin-top:22px">Enjoying it and just want to say thanks? A tip is always appreciated —
+      <a href="https://ko-fi.com/squitterpro" target="_blank" rel="noopener" style="color:var(--accent2)">leave one on Ko-fi ♥</a></p>
   </div>
 </section>
 
@@ -175,8 +296,8 @@
       <a href="terms.html">Terms of Service</a>
     </div>
     <p>Aircraft photos in-app are provided by planespotters.net and remain © their photographers.
-    Registration data by hexdb.io. Weather by aviationweather.gov. Map data © OpenStreetMap
-    contributors. SquitterPro is an independent project, not affiliated with Jetvision.</p>
+    Registration data by hexdb.io. Weather by aviationweather.gov. Map tiles © MapTiler
+    © OpenStreetMap contributors. SquitterPro is an independent project, not affiliated with Jetvision.</p>
     <p style="margin-top:8px">© 2026 Anthony Rose. All rights reserved.</p>
   </div>
 </footer>
