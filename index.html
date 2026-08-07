@@ -76,6 +76,15 @@
     padding: 18px 22px; }
   .namebox h3 { font-size: 16px; color: var(--accent2); margin-bottom: 6px; }
   .namebox p { color: var(--dim); font-size: 15px; }
+  .cmp-wrap { overflow-x: auto; margin-top: 24px; }
+  table.cmp { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 15px; }
+  table.cmp th, table.cmp td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  table.cmp thead th { font-size: 13px; color: var(--dim); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+  table.cmp thead th.us { color: var(--accent2); }
+  table.cmp td.us { background: #16283f; color: var(--text); font-weight: 600; }
+  table.cmp tbody th { font-weight: 500; color: var(--text); }
+  table.cmp td { color: var(--dim); }
+  .cmp-note { color: var(--dim); font-size: 13px; margin-top: 14px; }
   .shot { display: block; width: 100%; border-radius: 12px; border: 1px solid #2c4265;
     box-shadow: 0 18px 60px rgba(0,0,0,.5); }
   .shot-cap { color: var(--dim); font-size: 13.5px; text-align: center; margin-top: 12px; }
@@ -234,6 +243,42 @@
       <div class="stat"><b>100%</b><span>of your data stays on your machine</span></div>
       <div class="stat"><b>$24</b><span>one-time, no subscription ever</span></div>
     </div>
+  </div>
+</section>
+
+<section class="alt" id="compare">
+  <div class="wrap">
+    <h2>How it compares</h2>
+    <p class="lead">The free tools are excellent at showing you the current moment. Paid trackers
+    are excellent at covering the whole planet. SquitterPro is for the part neither one does:
+    keeping a permanent record of what <em>your</em> antenna heard.</p>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th></th>
+            <th>tar1090 / Virtual&nbsp;Radar&nbsp;Server</th>
+            <th>PlanePlotter</th>
+            <th class="us">SquitterPro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Cost</th><td>Free</td><td>€25 + VAT, one-time</td><td class="us">Free tier, $24 one-time for Pro</td></tr>
+          <tr><th>Live map of your traffic</th><td>Yes</td><td>Yes</td><td class="us">Yes</td></tr>
+          <tr><th>Permanent logbook of every airframe</th><td>No</td><td>Limited</td><td class="us">Yes, with photos and visit counts</td></tr>
+          <tr><th>All-time range records &amp; coverage map</th><td>No</td><td>Partial</td><td class="us">Yes</td></tr>
+          <tr><th>2.5-D altitude view</th><td>No</td><td>No</td><td class="us">Yes</td></tr>
+          <tr><th>ACARS cockpit messages</th><td>No</td><td>Yes</td><td class="us">Yes, with emergency alerts</td></tr>
+          <tr><th>Plain-English AI message explanations</th><td>No</td><td>No</td><td class="us">Yes, with your own AI key</td></tr>
+          <tr><th>Works with no receiver at all</th><td>No</td><td>No</td><td class="us">Yes, via free community feeds</td></tr>
+          <tr><th>Multilateration (locate non-ADS-B aircraft)</th><td>No</td><td>Yes, +€12/yr</td><td class="us">No</td></tr>
+          <tr><th>Runs offline, data stays on your PC</th><td>Yes</td><td>Yes</td><td class="us">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note">Competitor details from their published pages, August 2026; check them for
+    current terms. SquitterPro is a companion to the global tracking services rather than a
+    replacement: they cover the whole planet, this keeps the record of your own antenna.</p>
   </div>
 </section>
 
