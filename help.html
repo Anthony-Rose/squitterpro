@@ -44,7 +44,7 @@
 <div class="wrap">
   <a class="back" href="./">← SquitterPro</a>
   <h1>Help &amp; Setup Guide</h1>
-  <div class="meta">Everything you need to get SquitterPro running. Most of the app is explained by the built-in tour (About → Replay tutorial) — this page covers setup and the technical extras.</div>
+  <div class="meta">Everything you need to get SquitterPro running. Most of the app is explained by the built-in tour (About → Replay tutorial). This page covers setup and the technical extras.</div>
 
   <div class="toc">
     <a href="#install">Install &amp; first run</a>
@@ -60,8 +60,8 @@
   <ol>
     <li>Download <b>SquitterPro-Setup.exe</b> from the <a href="https://github.com/Anthony-Rose/squitterpro/releases/latest">latest release</a> and run it.</li>
     <li>The first time you run an app downloaded from the internet, Windows may show <b>“Windows protected your PC.”</b> Click <b>More info → Run anyway</b>. (See the note below.)</li>
-    <li>On first launch you’ll accept the licence agreement and get a short guided tour. You can replay the tour any time from <b>About</b>.</li>
-    <li>SquitterPro runs in <b>free mode</b> right away — live map, logbook, photos, your own receiver, and station stats. Pro features unlock with a licence key (see <a href="#pro">Going Pro</a>).</li>
+    <li>On first launch you’ll accept the license agreement and get a short guided tour. You can replay the tour any time from <b>About</b>.</li>
+    <li>SquitterPro runs in <b>free mode</b> right away: live map, logbook, photos, your own receiver, and station stats. Pro features unlock with a license key (see <a href="#pro">Going Pro</a>).</li>
   </ol>
   <div class="warn"><b>SmartScreen warning:</b> the installer isn’t code-signed yet, so Windows shows a blue warning the first time. This is normal for small independent apps. Click <b>More info → Run anyway</b>. The app makes no changes outside your own user folder.</div>
 
@@ -78,20 +78,20 @@
   <p>You don’t need any hardware to use SquitterPro. Turn on <b>Public Feed</b> (top bar) to blend in free community traffic from adsb.lol / adsb.fi / airplanes.live around your location. First, set where you are: <b>⚙ Setup → Set home location</b> — type coordinates or drop a pin on the map. Public-feed aircraft are display-only and don’t count toward your own receiver’s logbook or stats.</p>
 
   <h2 id="pro">Going Pro &amp; activation</h2>
-  <p><b>Pro</b> unlocks weather radar, area weather, coverage map &amp; range records, type trends, the 2.5D altitude view, and ACARS cockpit messages. It’s a one-time licence.</p>
+  <p><b>Pro</b> unlocks weather radar, area weather, coverage map &amp; range records, type trends, the 2.5D altitude view, and ACARS cockpit messages. It’s a one-time license.</p>
   <h3>Activate</h3>
   <ol>
-    <li>Buy a licence — you’ll receive a <b>licence key</b> by email.</li>
+    <li>Buy a license, and you’ll receive a <b>license key</b> by email.</li>
     <li>In SquitterPro click <b>★ Pro</b> (top bar), paste your key, and click <b>Activate</b>.</li>
-    <li>That’s it — Pro features unlock immediately. Your key is remembered.</li>
+    <li>That’s it. Pro features unlock immediately. Your key is remembered.</li>
   </ol>
   <h3 class="q">Moving to a new computer?</h3>
-  <p>Each licence works on a limited number of devices. To free a slot before switching machines, open <b>★ Pro → Remove licence</b> on the old computer, then activate on the new one. A reinstall on the <i>same</i> computer does <b>not</b> use up a slot.</p>
+  <p>Each license works on a limited number of devices. To free a slot before switching machines, open <b>★ Pro → Remove license</b> on the old computer, then activate on the new one. A reinstall on the <i>same</i> computer does <b>not</b> use up a slot.</p>
   <h3 class="q">“Activation limit reached”?</h3>
-  <p>You’ve activated on the maximum number of devices for that key. Remove the licence from a device you no longer use (above), or get in touch and we’ll help.</p>
+  <p>You’ve activated on the maximum number of devices for that key. Remove the license from a device you no longer use (above), or get in touch and we’ll help.</p>
 
   <h2 id="acars">ACARS cockpit messages <span style="font-size:13px;color:#f6e05e;border:1px solid #b7791f;border-radius:8px;padding:0 6px">Pro</span></h2>
-  <p>ACARS/VDL2/HFDL are the short text messages aircraft exchange with the ground — gate info, weather, position reports, and occasionally emergencies. SquitterPro can show them two ways, and you can use either or both. Open <b>⚙ Setup → Cockpit messages (ACARS)</b> and choose a <b>Source</b>.</p>
+  <p>ACARS/VDL2/HFDL are the short text messages aircraft exchange with the ground: gate info, weather, position reports, and occasionally emergencies. SquitterPro can show them two ways, and you can use either or both. Open <b>⚙ Setup → Cockpit messages (ACARS)</b> and choose a <b>Source</b>.</p>
 
   <h3>Option A — airframes.io (easiest)</h3>
   <ol>
@@ -113,14 +113,14 @@ dumphfdl --output decoded:json:udp:address=127.0.0.1,port=5555 &lt;args&gt;</pre
   <div class="note">If the decoder runs on another machine, use SquitterPro’s IP instead of <code>127.0.0.1</code> and make sure UDP 5555 is allowed through the firewall.</div>
 
   <h3>Copy a message</h3>
-  <p>Every message has a <b>Copy</b> link — handy for pasting into a search engine or another AI tool.</p>
+  <p>Every message has a <b>Copy</b> link, handy for pasting into a search engine or another AI tool.</p>
 
   <h3>Reading messages</h3>
   <ul>
     <li>Aircraft with cockpit messages get a <b>gold ring</b> and a ✉ in the list. Click one to read its messages.</li>
     <li>The <b>ACARS tab</b> shows a live ticker of all messages.</li>
     <li><b>Emergencies</b> (Mayday, squawk 7700, engine failure, etc.) turn the ring <b>red</b>, raise a red banner, and are saved permanently in the 🔔 notification bell.</li>
-    <li>SquitterPro decodes the message type and common content automatically. Some messages are airline-proprietary — for those, use <a href="#ai">AI “Explain”</a>.</li>
+    <li>SquitterPro decodes the message type and common content automatically. Some messages are airline-proprietary; for those, use <a href="#ai">AI “Explain”</a>.</li>
   </ul>
 
   <h2 id="ai">AI “Explain” <span style="font-size:13px;color:#f6e05e;border:1px solid #b7791f;border-radius:8px;padding:0 6px">Optional</span></h2>
@@ -137,7 +137,7 @@ dumphfdl --output decoded:json:udp:address=127.0.0.1,port=5555 &lt;args&gt;</pre
   <h2 id="faq">Troubleshooting</h2>
 
   <p class="q">“Windows protected your PC” when I run the installer</p>
-  <p>Expected for an unsigned app — click <b>More info → Run anyway</b>. SquitterPro is safe and only writes to your own user folder.</p>
+  <p>Expected for an unsigned app. Click <b>More info → Run anyway</b>. SquitterPro is safe and only writes to your own user folder.</p>
 
   <p class="q">No aircraft on the map</p>
   <p>Either your receiver isn’t reachable, or you have no receiver. Check <b>⚙ Setup → Receiver</b> (and Scan), or turn on <b>Public Feed</b> and set your home location.</p>
@@ -155,7 +155,7 @@ dumphfdl --output decoded:json:udp:address=127.0.0.1,port=5555 &lt;args&gt;</pre
   <p>Add a provider and API key in Setup → Cockpit messages → Explain messages with AI.</p>
 
   <p class="q">Where is my data stored?</p>
-  <p>Everything stays on your PC under <code>%LOCALAPPDATA%\SquitterPro</code> — logbook, settings, cached photos, and your licence. Deleting that folder resets the app.</p>
+  <p>Everything stays on your PC under <code>%LOCALAPPDATA%\SquitterPro</code>: logbook, settings, cached photos, and your license. Deleting that folder resets the app.</p>
 
   <p style="margin-top:28px">Still stuck? Email <a href="mailto:SquitterPro@proton.me">SquitterPro@proton.me</a> or use <b>About → Report a problem</b> in the app.</p>
 </div>
