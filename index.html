@@ -15,7 +15,7 @@
 </script>
 <script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SquitterPro — Your antenna hears everything. Start keeping score.</title>
+<title>SquitterPro — coming soon</title>
 <meta name="description" content="SquitterPro is a desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, a 2.5-D altitude view, military-aware map icons, range records, coverage maps, weather radar, alerts, trends, and ACARS cockpit-message decoding. Works with Jetvision Airsquitter, readsb/dump1090 Raspberry Pi trackers, or free public feeds. Free to use; $24 one-time for Pro.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a365d'/><text x='50' y='68' font-size='52' text-anchor='middle'>✈️</text></svg>">
 <link rel="canonical" href="https://squitterpro.com/">
@@ -25,14 +25,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SquitterPro">
 <meta property="og:url" content="https://squitterpro.com/">
-<meta property="og:title" content="SquitterPro — your antenna hears everything. Start keeping score.">
+<meta property="og:title" content="SquitterPro — coming soon">
 <meta property="og:description" content="A desktop aircraft tracker for your ADS-B receiver, or free community feeds if you don't own one. Permanent logbook, 2.5-D altitude view, coverage and range records, weather, and ACARS cockpit messages. Free to use; $24 one-time for Pro.">
 <meta property="og:image" content="https://squitterpro.com/img/social-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SquitterPro showing aircraft on altitude stems over satellite terrain in 2.5-D">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SquitterPro — your antenna hears everything. Start keeping score.">
+<meta name="twitter:title" content="SquitterPro — coming soon">
 <meta name="twitter:description" content="A desktop aircraft tracker for your ADS-B receiver, or free community feeds if you don't own one. Free to use; $24 one-time for Pro.">
 <meta name="twitter:image" content="https://squitterpro.com/img/social-card.jpg">
 <script type="application/ld+json">
@@ -42,7 +42,6 @@
  "operatingSystem":"Windows 10, Windows 11",
  "description":"A desktop aircraft tracker for ADS-B receivers: a permanent logbook with photos, a 2.5-D altitude view, coverage maps and range records, weather radar, alerts, trends, and ACARS cockpit-message decoding.",
  "url":"https://squitterpro.com/",
- "downloadUrl":"https://github.com/Anthony-Rose/squitterpro/releases/latest/download/SquitterPro-Setup.exe",
  "softwareVersion":"1.0.0",
  "author":{"@type":"Person","name":"Anthony Rose"},
  "offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","name":"Free"},
@@ -67,6 +66,11 @@
   .cta.primary { background: var(--accent); color: #fff; }
   .cta.ghost { border: 1px solid var(--accent); color: var(--accent2); }
   .cta:hover { filter: brightness(1.15); }
+  /* Nothing to download yet. The buttons keep their place in the layout but
+     read as unavailable, so the page never promises a link it cannot honour. */
+  .cta.soon { background: #1d2c46; border: 1px dashed #33507a; color: var(--dim);
+    cursor: default; }
+  .cta.soon:hover { filter: none; }
   .badge { display: inline-block; background: #26375580; border: 1px solid #33507a;
     color: var(--accent2); border-radius: 20px; padding: 3px 14px; font-size: 13px; margin-bottom: 18px; }
   section { padding: 56px 0; }
@@ -150,12 +154,12 @@
   <div class="wrap">
     <div class="logo">SquitterPro</div>
     <h1>Your antenna hears everything.<br>Start keeping score.</h1>
+    <div class="badge" style="margin-top:16px">Coming soon</div>
     <p class="sub">A desktop aircraft tracker for your ADS-B receiver, or for free community
     feeds if you don't own one yet. Every airframe you've ever heard, logged and photographed
     and mapped in 2.5-D, plus range records, coverage, alerts, weather, and cockpit-message
     decoding.</p>
-    <a class="cta primary" href="https://github.com/Anthony-Rose/squitterpro/releases/latest/download/SquitterPro-Setup.exe">↓ Download for Windows</a>
-    <a class="cta ghost" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Unlock Pro — $24</a>
+    <span class="cta soon">Coming soon</span>
     <div class="price-note">Free to use · one-time <strong>$24</strong> for Pro · Windows 10/11 · no subscription, ever</div>
   </div>
 </header>
@@ -328,7 +332,7 @@
           <li>Breadcrumb trails, filters &amp; alerts</li>
           <li>Your own station stats</li>
         </ul>
-        <a class="cta ghost" style="display:block" href="https://github.com/Anthony-Rose/squitterpro/releases/latest/download/SquitterPro-Setup.exe">↓ Download free</a>
+        <span class="cta soon" style="display:block">Coming soon</span>
       </div>
       <div class="price-card pro">
         <h3>Pro</h3>
@@ -342,10 +346,10 @@
           <li>Aircraft-type trends</li>
           <li>ACARS cockpit messages + AI “Explain”</li>
         </ul>
-        <a class="cta primary" style="display:block" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Get Pro — $24</a>
+        <span class="cta soon" style="display:block">Coming soon</span>
       </div>
     </div>
-    <p class="price-note">Secure checkout by Lemon Squeezy. Your license key is emailed to you and activates in the app.</p>
+    <p class="price-note">These are the planned prices. Checkout opens when SquitterPro is released.</p>
   </div>
 </section>
 
@@ -369,10 +373,10 @@
 <section id="support">
   <div class="wrap" style="text-align:center">
     <h2>Get SquitterPro</h2>
-    <p class="lead" style="margin:0 auto 22px">Download free and try it today. Unlock Pro whenever you're ready, one time, $24.</p>
-    <a class="cta primary" href="https://github.com/Anthony-Rose/squitterpro/releases/latest/download/SquitterPro-Setup.exe">↓ Download for Windows</a>
-    <a class="cta ghost" href="https://squitterpro.lemonsqueezy.com/checkout/buy/32ed5ee9-b13e-4da6-b628-d2f1c20e27e0">Unlock Pro — $24</a>
-    <p class="price-note" style="margin-top:22px">Enjoying it and just want to say thanks? You can
+    <p class="lead" style="margin:0 auto 22px">Not quite ready yet. SquitterPro is in the last
+      stretch of work before release, and the download will appear here when it lands.</p>
+    <span class="cta soon">Coming soon</span>
+    <p class="price-note" style="margin-top:22px">Want to support the work early? You can
       <a href="https://ko-fi.com/squitterpro" target="_blank" rel="noopener" style="color:var(--accent2)">leave a tip on Ko-fi ♥</a></p>
   </div>
 </section>
