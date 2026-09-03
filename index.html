@@ -115,7 +115,11 @@
   table.cmp tbody th { font-weight: 500; color: var(--text); }
   table.cmp td { color: var(--dim); }
   .cmp-note { color: var(--dim); font-size: 13px; margin-top: 14px; }
-  .shot { display: block; width: 100%; border-radius: 12px; border: 1px solid #2c4265;
+  /* height:auto is required now the tags carry width and height. Those
+     attributes exist to reserve the right space before the image loads,
+     but with width:100% and no height:auto the height stays pinned at the
+     attribute value and every screenshot renders stretched. */
+  .shot { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid #2c4265;
     box-shadow: 0 18px 60px rgba(0,0,0,.5); }
   .shot-cap { color: var(--dim); font-size: 13.5px; text-align: center; margin-top: 12px; }
   .hero-shot { max-width: 1000px; margin: 0 auto; }
